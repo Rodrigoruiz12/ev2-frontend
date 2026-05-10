@@ -1,15 +1,15 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
-
-// https://vitejs.dev/config/
+// vite.config.js
 export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': {
-        target: 'https://qic534o8o0.execute-api.us-east-1.amazonaws.com',
+      '/api/v1/ventas': {
+        target: 'http://10.0.132.216:8080', // Puerto de Ventas
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
+      },
+      '/api/v1/despachos': {
+        target: 'http://10.0.132.216:8081', // Puerto de Despachos
+        changeOrigin: true,
       }
     }
   }
