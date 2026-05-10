@@ -43,9 +43,7 @@ jobs:
           script: |
             # Entrar a la carpeta
             cd /home/ec2-user/frontend
-            # Bajar la versión antigua (si existe)
-            docker-compose down || true
-            # Descargar la imagen nueva que acaba de subir GitHub
-            docker-compose pull
-            # Levantar el contenedor limpio y actualizado
-            docker-compose up -d --force-recreate
+            # Cambiamos el guion por un espacio en los 3 comandos
+            docker compose down || true
+            docker compose pull
+            docker compose up -d --force-recreate
