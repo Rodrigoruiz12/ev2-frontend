@@ -41,9 +41,8 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            # Entrar a la carpeta
             cd /home/ec2-user/frontend
-            # Cambiamos el guion por un espacio en los 3 comandos
-            docker compose down || true
-            docker compose pull
-            docker compose up -d --force-recreate
+            # Volvemos al guion porque ya lo instalamos en el servidor
+            docker-compose down || true
+            docker-compose pull
+            docker-compose up -d --force-recreate
